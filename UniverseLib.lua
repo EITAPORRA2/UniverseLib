@@ -1,4 +1,4 @@
-local CFAHub = {}
+local UniverseHub = {}
 
 warn("Preparing UI...")
 
@@ -93,7 +93,7 @@ function Animate:CreateGradient(object)
     UIGradient.Parent = object
 end
 
-function CFAHub:DraggingEnabled(frame, parent)
+function UniverseHub:DraggingEnabled(frame, parent)
     parent = parent or frame
 
     local dragging = false
@@ -127,10 +127,10 @@ function CFAHub:DraggingEnabled(frame, parent)
     end)
 end
 
-local GuiName = "CFAHubPremium2022"
+local GuiName = "UniverseHubPremium"
 
-function CFAHub:CreateWindow(title, gameName, intro)
-    title = title or "<font color=\"#1CB2F5\">CFA Hub Premium</font>"
+function UniverseHub:CreateWindow(title, gameName, intro)
+    title = title or "<font color=\"#1CB2F5\">Universe Hub Premium</font>"
     gameName = gameName or "N/A"
 
     for _, v in pairs(CoreGui:GetChildren()) do
@@ -153,18 +153,18 @@ function CFAHub:CreateWindow(title, gameName, intro)
         Logo = "rbxassetid://14853675856"
     }
 
-    table.insert(CFAHub, title)
+    table.insert(UniverseHub, title)
 
-    function CFAHub:SetTheme(theme, color3)
+    function UniverseHub:SetTheme(theme, color3)
         themes[theme] = color3
     end
 
-    local CFAHubGui = Instance.new("ScreenGui")
+    local UniverseHubGui = Instance.new("ScreenGui")
 
     if intro == true then
         local Logo = Instance.new("ImageLabel")
 
-        Logo.Parent = CFAHubGui
+        Logo.Parent = UniverseHubbGui
         Logo.AnchorPoint = Vector2.new(0.5, 0.5)
         Logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Logo.BackgroundTransparency = 1.000
@@ -220,7 +220,7 @@ function CFAHub:CreateWindow(title, gameName, intro)
     UIListLayout.Padding = UDim.new(0, 8)
 
     CurrentAlert.Name = "NotiContainer"
-    CurrentAlert.Parent = CFAHubGui
+    CurrentAlert.Parent = UniverseHubGui
     CurrentAlert.AnchorPoint = Vector2.new(1, 1)
     CurrentAlert.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     CurrentAlert.BackgroundTransparency = 1.000
@@ -228,7 +228,7 @@ function CFAHub:CreateWindow(title, gameName, intro)
     CurrentAlert.Size = UDim2.new(1, -10, 1, -10)
     CurrentAlert.ZIndex = 9
 
-    function CFAHub:AddNoti(header, message, duration, buttonEnable, callback)
+    function UniverseHub:AddNoti(header, message, duration, buttonEnable, callback)
         header = header or "Announcement"
         message = message or "Nil"
         duration = duration or 120
@@ -443,7 +443,7 @@ function CFAHub:CreateWindow(title, gameName, intro)
         end)
     end -- final
 
-    function CFAHub:ToggleUI()
+    function UniverseHub:ToggleUI()
         if Container.Visible == true then
             Utility:TweenObject(UIScale, {Scale = 0.95}, 0.25)
             wait(0.25)
@@ -454,14 +454,14 @@ function CFAHub:CreateWindow(title, gameName, intro)
         end
     end
 
-    CFAHub:DraggingEnabled(Header, Container)
+    UniverseHub:DraggingEnabled(Header, Container)
 
-    CFAHubGui.Name = GuiName
-    CFAHubGui.Parent = CoreGui
-    CFAHubGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    UniverseHubGui.Name = GuiName
+    UniverseHubGui.Parent = CoreGui
+    UniverseHubGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
     Container.Name = "Container"
-    Container.Parent = CFAHubGui
+    Container.Parent = UniverseHubGui
     Container.AnchorPoint = Vector2.new(0.5, 0.5)
     Container.BackgroundColor3 = themes.Container
     Objects[Container] = "Container"
@@ -2269,4 +2269,4 @@ function CFAHub:CreateWindow(title, gameName, intro)
     return Tabs
 end
 
-return CFAHub
+return UniverseHub
